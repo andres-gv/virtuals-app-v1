@@ -33,10 +33,11 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 6. Install the Playwright browser itself inside the container
-RUN playwright install chromium
+RUN playwright install chromium --with-deps
 
 # 7. Copy your application code into the container
 COPY app.py .
+COPY styles.css .
 
 # 8. Expose the port the app runs on
 EXPOSE 8000
